@@ -26,3 +26,8 @@ Install a postman
 create a workspace
 create a colection 
 test Api call 
+
+>>>>>>>>>>>>>>>>>>>>>>>>>questions<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+
+What is middleware 
+status code 

@@ -1,30 +1,30 @@
 
 const express = require('express')
 
+const {adminAuth, userAuth} = require('./middlewares/auth')
+
 
 const app = express() // created a server
+//handle Auth middleware for all request GET, Post...etc using middleware
 
-// Router, request handler
-// order of the writing the code is an importent matter
-app.use("/user", (req,res, next)=>{
-    console.log('this is me')
-    next() // next will execute the next request handler function
-},  (req,res, next)=>{
-    // res.send("Route handler 1")
-    res.send("Route handler 2")
-    next()
-    console.log('this is me 2')
-}, (req,res, next)=>{
-    // res.send("Route handler 1")
-    res.send("Route handler 2")
-    console.log('this is me 2')
-},
-(req,res, next)=>{
-    // res.send("Route handler 1")
-    res.send("Route handler 2")
-    console.log('this is me 2')
+app.use("/admin", adminAuth)
+
+app.post("/user/login", (req, res)=>{
+    res.send('user logged in successfully!')
 })
 
+app.get("/user", userAuth ,(req,res)=>{
+    res.send('User data send')
+})
+
+app.get("/admin/getAllData",(req,res)=>{s
+    res.send('All Data sent')
+})
+
+app.get("/admin/deleteUser",(req,res)=>{
+    console.log('admin delete log ')
+    res.send('Data user data')
+})
 
 app.listen(3000, ()=>{
     console.log('server is successfully listaning on port 3000')
