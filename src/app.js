@@ -3,15 +3,10 @@ const connectDB = require("./config/database")
 const app = express() 
 const User = require('./models/user')
 
+app.use(express.json())
 
 app.post("/signup",async (req, res)=>{
-   const userObject ={
-    firstName : "virat",
-    lastName: "kohli",
-    emailId: "virat@gmail.com",
-    password: "virat123"
-   }
-
+   const userObject = req.body
    // creating new instance of the user modal
    const user = new User(userObject)
 

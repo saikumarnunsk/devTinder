@@ -44,3 +44,5 @@ status code
 8, crete a API /signup call
     Note: while doing db operations use try catch block to handle the errors
 9, make a api call with post man
+10, add express.json middleware to your project
+11, hit the dynamic data from the postman
