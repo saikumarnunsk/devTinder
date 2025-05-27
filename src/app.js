@@ -19,6 +19,40 @@ app.post("/signup",async (req, res)=>{
 
 })
 
+// find user by email
+
+app.get('/user', async (req, res)=>{
+   const email = req.body.emailId
+ try{
+  const user = await User.find({emailId: email})
+  if(user.length === 0){
+    res.status(400).send('user not matched')
+  }else{
+ res.send(user)
+
+  }
+ }catch(error){
+    res.status(400).send('Somethimg went wrong')
+ }
+
+})
+
+app.get("/feed", async (req, res)=>{
+   
+    try{
+    const users = await User.find({})
+        console.log('users', users)
+    if(users.length){
+    await res.send(users)
+    }else{
+        res.status(400).send('no data avialble')
+    }
+
+    }catch(error){
+        res.status(400).send('something wrong')
+    }
+})
+
 connectDB().then(()=>{
     console.log('Database connected successfully')
     app.listen(3000, ()=>{
