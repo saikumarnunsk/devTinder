@@ -31,3 +31,16 @@ test Api call
 
 What is middleware 
 status code 
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>MondoDB COnnection process>>>>>>>>>>>>>>
+
+1, Create a free cluster on MongoDB official website (Atlas)
+2, get the connection string
+3, Mongo DB compass to see the DB data(UI)
+4, Install Mongoose library
+5, connect your application with the "connection String"/devTinder(DB name)
+6, call the connectionDB function and connect to database befor starting application on some port
+7, create a userschema then create a user Mondal
+8, crete a API /signup call
+    Note: while doing db operations use try catch block to handle the errors
+9, make a api call with post man
