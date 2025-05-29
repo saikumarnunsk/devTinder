@@ -46,3 +46,7 @@ status code
 9, make a api call with post man
 10, add express.json middleware to your project
 11, hit the dynamic data from the postman
+
+12,install amd explore validator(library to validate the user data)
+
+13, bcrypt package to encript the password
