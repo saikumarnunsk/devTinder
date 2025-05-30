@@ -52,3 +52,4 @@ Note: while doing db operations use try catch block to handle the errors
 17, \*\*create userschema methods
 
 18, \*\*Create a routes and divide the APIs
+19, \*\* create a Routes using express.Router
