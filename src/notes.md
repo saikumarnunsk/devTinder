@@ -50,3 +50,5 @@ Note: while doing db operations use try catch block to handle the errors
 15, cookie-parse is the packge to store the cookies and parse it
 16, write user Auth middle ware and add it in all the API where you want authentication
 17, \*\*create userschema methods
+
+18, \*\*Create a routes and divide the APIs

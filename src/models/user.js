@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 const userSchema = new mongoose.Schema(
   {
@@ -59,8 +60,6 @@ const userSchema = new mongoose.Schema(
 );
 
 // off loading the below functionality to the schema this we cam call it as (helper function)
-
-console.log("userSchema.methods", userSchema);
 
 userSchema.methods.getJWT = async function () {
   const user = this;
