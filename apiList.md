@@ -19,6 +19,10 @@ status: ignore/intrusted/ accepted/rejected
 - POST/request/send/intrusted/:userId
 - POST/request/send/ignore/:userId
 
+  ### we can make it dynamic
+
+- POST/request/send/:status/:userId
+
 - POST/request/review/accepted/:requestId
 - POST/request/review/rejected/:requestId
 

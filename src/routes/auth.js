@@ -51,7 +51,9 @@ authRouter.post("/login", async (req, res) => {
       //   });
       // create a JWT token
       // Add the token to cookies and the response back to the user
-      res.cookie("token", token, { expires: new Date(Date.now() + 900000) });
+      res.cookie("token", token, {
+        expires: new Date(Date.now() + 60 * 60 * 1000),
+      });
       res.status(200).send({ message: "Login successful", userId: user._id });
     } else {
       return res.status(401).send("Invalid email or password");
