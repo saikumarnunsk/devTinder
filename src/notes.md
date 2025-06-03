@@ -55,5 +55,20 @@ Note: while doing db operations use try catch block to handle the errors
 19, \*\* create a Routes using express.Router
 21, ## create a relations between the collections
 21, ## mongo DB Queries
+22, ## https://www.mongodb.com/docs/manual/reference/operator/query/ (practice query operator $or, $and, )
 
 20, \*\* indexing(componound indexes) in mondoDB(make it quer faster)
+
+# pagination
+
+/feed?page=1&limit=10 => 1-10 ===> .skip(0) & .limit(10)
+
+/feed?page=2&limit=10 => 11-20 ===> .skip(10) & .limit(10)
+
+/feed?page=3&limit=10 => 21-30 ===> .skip(20) & .limit(10)
+
+## \*\*\*methods in mongoDB
+
+.skip() & .limit()
+
+skip() => (page-1)\*limit
