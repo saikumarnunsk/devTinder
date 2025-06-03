@@ -26,8 +26,12 @@ status: ignore/intrusted/ accepted/rejected
 - POST/request/review/accepted/:requestId
 - POST/request/review/rejected/:requestId
 
+  ### we can make it dynamic
+
+  POST/request/review/:status/:requestId
+
 ## userRouter
 
 - GET/user/connections
-- GET/user/requests
+- GET/user/requests/recieved
 - GET/user/feed - Gets you the profiles of the other user

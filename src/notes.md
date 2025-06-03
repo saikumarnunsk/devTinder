@@ -53,5 +53,7 @@ Note: while doing db operations use try catch block to handle the errors
 
 18, \*\*Create a routes and divide the APIs
 19, \*\* create a Routes using express.Router
+21, ## create a relations between the collections
+21, ## mongo DB Queries
 
 20, \*\* indexing(componound indexes) in mondoDB(make it quer faster)
