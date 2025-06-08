@@ -17,14 +17,19 @@ authRouter.post("/signup", async (req, res) => {
 
     const passwordHash = await bcrypt.hash(password, 10);
     // creating new instance of the user modal
+
     const user = new User({
-      firstName,
-      lastName,
-      emailId,
+      ...req.body,
       password: passwordHash,
     });
+
+    const token = await user.getJWT();
+    res.cookie("token", token, {
+      expires: new Date(Date.now() + 60 * 60 * 1000),
+    });
+
     await user.save();
-    res.send("user added succsessfully !!!!");
+    res.json({ message: "user added succsessfully !!!!", data: user });
   } catch (error) {
     res.status(400).send("error saving the user:" + error.message);
   }
@@ -54,7 +59,10 @@ authRouter.post("/login", async (req, res) => {
       res.cookie("token", token, {
         expires: new Date(Date.now() + 60 * 60 * 1000),
       });
-      res.status(200).send({ message: "Login successful", userId: user._id });
+      res.status(200).send({
+        message: user.firstName + " Login successful",
+        data: user,
+      });
     } else {
       return res.status(401).send("Invalid email or password");
     }

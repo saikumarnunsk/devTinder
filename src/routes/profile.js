@@ -12,7 +12,7 @@ profileRouter.get("/profile/view", userAuth, async (req, res) => {
   }
 });
 
-profileRouter.patch("/profile/edit", userAuth, (req, res) => {
+profileRouter.patch("/profile/edit", userAuth, async (req, res) => {
   try {
     validateProfileData(req);
 
@@ -24,8 +24,11 @@ profileRouter.patch("/profile/edit", userAuth, (req, res) => {
     Object.keys(req.body).forEach((reqKey) => {
       return (loggedInUser[reqKey] = req.body[reqKey]);
     });
-    loggedInUser.save();
-    res.send(`${loggedInUser.firstName} profile updated successfully !!`);
+    await loggedInUser.save();
+    res.status(200).json({
+      message: `${loggedInUser.firstName} profile updated successfully`,
+      data: loggedInUser,
+    });
   } catch (error) {
     res.status(500).send("Error: " + error.message);
   }

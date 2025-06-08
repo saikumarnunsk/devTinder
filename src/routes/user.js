@@ -14,7 +14,7 @@ userRouter.get("/user/requests/recieved", userAuth, async (req, res) => {
       toUserId: loggedInUser._id,
       status: "interested",
       //***************creating a relation between connectionRequestSchema and User collections *************
-    }).populate("fromUserId", "firstName lastName photoUrl age gender skills");
+    }).populate("fromUserId", "firstName lastName photoURL age gender skills");
     // or you can pass array of keys }).populate("fromUserId", ["firstName", "lastName"]);
 
     res.json({
@@ -33,6 +33,7 @@ userRouter.get("/user/connections", userAuth, async (req, res) => {
     const loggedInUser = req.user;
 
     // sai==> dhana => accepted
+
     // dhana ==> kira ==> accpeted
 
     const connectionRequests = await ConnectionRequest.find({
@@ -48,8 +49,8 @@ userRouter.get("/user/connections", userAuth, async (req, res) => {
       ],
       //***************creating a relation between connectionRequestSchema and User collections *************
     })
-      .populate("fromUserId", "firstName lastName photoUrl age gender skills")
-      .populate("toUserId", "firstName lastName photoUrl age gender skills");
+      .populate("fromUserId", "firstName lastName photoURL age gender skills")
+      .populate("toUserId", "firstName lastName photoURL age gender skills");
     // or you can pass array of keys }).populate("fromUserId", ["firstName", "lastName"]);
 
     const data = connectionRequests.map((data) => {
@@ -110,7 +111,7 @@ userRouter.get("/feed", userAuth, async (req, res) => {
         },
       ],
     })
-      .select("firstName lastName photoUrl age gender skills")
+      .select("firstName lastName photoURL age gender skills about")
       .skip(skip)
       .limit(limit);
 
